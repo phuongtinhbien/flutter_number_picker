@@ -51,69 +51,68 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      height: 30,
-      decoration: BoxDecoration(
-          border:
-              widget.border ?? Border.all(width: 1, color: Color(0xffF0F0F0))),
-      child: Row(
-        children: <Widget>[
-          GestureDetector(
-            onTap: minus,
-            onTapDown: (details) {
-              onLongPress(DoAction.MINUS);
-            },
-            onTapUp: (details) {
-              _timer.cancel();
-            },
-            onTapCancel: () {
-              _timer.cancel();
-            },
-            child: Padding(
-              padding: EdgeInsets.only(left: 6, right: 2, bottom: 6, top: 6),
-              child: SvgPicture.asset(
-                Res.ic_minus,
-                height: 15,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 8,
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 6, top: 6),
-              child: Center(
-                child: Text(
-                  "$_initialValue",
-                  style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
+
+    return IntrinsicWidth(
+      child: Container(
+        height: 30,
+        decoration: BoxDecoration(
+            border:
+                widget.border ?? Border.all(width: 1, color: Color(0xffF0F0F0))),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            GestureDetector(
+              onTap: minus,
+              onTapDown: (details) {
+                onLongPress(DoAction.MINUS);
+              },
+              onTapUp: (details) {
+                _timer.cancel();
+              },
+              onTapCancel: () {
+                _timer.cancel();
+              },
+              child: Padding(
+                padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+                child: SvgPicture.asset(
+                  Res.ic_minus,
+                  height: 15,
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 8,
-          ),
-          GestureDetector(
-            onTap: add,
-            onTapDown: (details) {
-              onLongPress(DoAction.ADD);
-            },
-            onTapUp: (details) {
-              _timer.cancel();
-            },
-            onTapCancel: () {
-              _timer.cancel();
-            },
-            child: Padding(
-              padding: EdgeInsets.only(left: 2, right: 6, bottom: 6, top: 6),
-              child: SvgPicture.asset(
-                Res.ic_add,
-                height: 15,
+            SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              child: Text(
+                "$_initialValue",
+                style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
               ),
             ),
-          )
-        ],
+            SizedBox(
+              width: 8,
+            ),
+            GestureDetector(
+              onTap: add,
+              onTapDown: (details) {
+                onLongPress(DoAction.ADD);
+              },
+              onTapUp: (details) {
+                _timer.cancel();
+              },
+              onTapCancel: () {
+                _timer.cancel();
+              },
+              child: Padding(
+                padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+                child: SvgPicture.asset(
+                  Res.ic_add,
+                  height: 15,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
