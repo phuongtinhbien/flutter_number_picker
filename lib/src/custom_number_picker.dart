@@ -5,7 +5,7 @@ import 'package:flutter_number_picker/src/res.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNumberPicker extends StatefulWidget {
-  final Border border;
+  final ShapeBorder shape;
   final TextStyle valueTextStyle;
   final Function(dynamic) onValue;
   final dynamic maxValue;
@@ -15,7 +15,7 @@ class CustomNumberPicker extends StatefulWidget {
 
   CustomNumberPicker(
       {Key key,
-      this.border,
+      this.shape,
       this.valueTextStyle,
       @required this.onValue,
       @required this.initialValue,
@@ -52,67 +52,66 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    return IntrinsicWidth(
-      child: Container(
-        height: 30,
-        decoration: BoxDecoration(
-            border:
-                widget.border ?? Border.all(width: 1, color: Color(0xffF0F0F0))),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            GestureDetector(
-              onTap: minus,
-              onTapDown: (details) {
-                onLongPress(DoAction.MINUS);
-              },
-              onTapUp: (details) {
-                _timer.cancel();
-              },
-              onTapCancel: () {
-                _timer.cancel();
-              },
-              child: Padding(
-                padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
-                child: SvgPicture.asset(
-                  Res.ic_minus,
-                  height: 15,
-                ),
+    return Card(
+      shadowColor: Colors.transparent,
+      elevation: 0.0,
+      color: Colors.transparent,
+      shape: widget.shape ??
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(0.0)),
+              side: BorderSide(width: 1.0, color: Color(0xffF0F0F0))),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          GestureDetector(
+            onTap: minus,
+            onTapDown: (details) {
+              onLongPress(DoAction.MINUS);
+            },
+            onTapUp: (details) {
+              _timer.cancel();
+            },
+            onTapCancel: () {
+              _timer.cancel();
+            },
+            child: Padding(
+              padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+              child: SvgPicture.asset(
+                Res.ic_minus,
+                height: 15,
               ),
             ),
-            SizedBox(
-              width: 8,
-            ),
-            Expanded(
-              child: Text(
-                "$_initialValue",
-                style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          Text(
+            "$_initialValue",
+            style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          GestureDetector(
+            onTap: add,
+            onTapDown: (details) {
+              onLongPress(DoAction.ADD);
+            },
+            onTapUp: (details) {
+              _timer.cancel();
+            },
+            onTapCancel: () {
+              _timer.cancel();
+            },
+            child: Padding(
+              padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+              child: SvgPicture.asset(
+                Res.ic_add,
+                height: 15,
               ),
             ),
-            SizedBox(
-              width: 8,
-            ),
-            GestureDetector(
-              onTap: add,
-              onTapDown: (details) {
-                onLongPress(DoAction.ADD);
-              },
-              onTapUp: (details) {
-                _timer.cancel();
-              },
-              onTapCancel: () {
-                _timer.cancel();
-              },
-              child: Padding(
-                padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
-                child: SvgPicture.asset(
-                  Res.ic_add,
-                  height: 15,
-                ),
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
