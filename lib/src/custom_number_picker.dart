@@ -70,7 +70,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
               _timer.cancel();
             },
             child: Padding(
-              padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+              padding: EdgeInsets.only(left: 6, right: 2, bottom: 6, top: 6),
               child: SvgPicture.asset(
                 Res.ic_minus,
                 height: 15,
@@ -106,7 +106,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
               _timer.cancel();
             },
             child: Padding(
-              padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+              padding: EdgeInsets.only(left: 2, right: 6, bottom: 6, top: 6),
               child: SvgPicture.asset(
                 Res.ic_add,
                 height: 15,

@@ -29,11 +29,12 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: Container(
-            width: 90,
+            width: 100,
             child: CustomNumberPicker(
-              initialValue: 0,
+              initialValue: 300,
               maxValue: 9999,
               minValue: 0,
+              step: 100,
               onValue: (value) {
                 print(value.toString());
               },
