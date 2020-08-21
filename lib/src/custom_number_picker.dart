@@ -55,6 +55,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
     return Card(
       shadowColor: Colors.transparent,
       elevation: 0.0,
+      semanticContainer: true,
       color: Colors.transparent,
       shape: widget.shape ??
           RoundedRectangleBorder(
@@ -85,9 +86,13 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
           SizedBox(
             width: 8,
           ),
-          Text(
-            "$_initialValue",
-            style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
+          Container(
+            width:  _textSize(widget.valueTextStyle ?? TextStyle(fontSize: 14)).width,
+            child: Text(
+              "$_initialValue",
+              style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
+              textAlign: TextAlign.center,
+            ),
           ),
           SizedBox(
             width: 8,
@@ -116,6 +121,12 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
     );
   }
 
+  Size _textSize(TextStyle style) {
+    final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: _maxValue.toString(), style: style), maxLines: 1, textDirection: TextDirection.ltr)
+      ..layout(minWidth: 0, maxWidth: _maxValue.toString().length* style.fontSize);
+    return textPainter.size;
+  }
   void minus() {
     if (canDoAction(DoAction.MINUS)) {
       setState(() {
