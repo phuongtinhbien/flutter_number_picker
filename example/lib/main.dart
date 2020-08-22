@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Plutter number picker'),
         ),
         body: Center(
           child: Container(
