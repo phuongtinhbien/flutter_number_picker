@@ -9,6 +9,14 @@ Flutter Number Picker is a custom widget designed for choosing an integer or dec
 dependencies:
   flutter:
     sdk: flutter
+  flutter_number_picker: 0.0.1
+```
+OR
+
+```
+dependencies:
+  flutter:
+    sdk: flutter
   flutter_number_picker:
       git: https://github.com/phuongtinhbien/flutter_number_picker.git
 ```
