@@ -133,7 +133,9 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
         _initialValue -= _step;
       });
     }
-    widget.onValue(_initialValue);
+    if (widget.onValue != null){
+      widget.onValue(_initialValue);
+    }
   }
 
   void add() {
@@ -142,7 +144,9 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
         _initialValue += _step;
       });
     }
-    widget.onValue(_initialValue);
+    if (widget.onValue != null){
+      widget.onValue(_initialValue);
+    }
   }
 
   void onLongPress(DoAction action) {
