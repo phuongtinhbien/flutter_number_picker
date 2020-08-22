@@ -42,7 +42,7 @@ See examples directory for full examples.
 
 
 #### Standalone widget
-![vertical](https://github.com/phuongtinhbien/flutter_number_picker/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202020-08-22%20at%2013.44.02.png)
+![vertical](https://github.com/phuongtinhbien/flutter_number_picker/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202020-08-22%20at%2013.44.02.png | width=200)
 ```dart
 class MyApp extends StatefulWidget {
   @override
