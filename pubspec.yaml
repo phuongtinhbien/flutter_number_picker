@@ -1,6 +1,9 @@
 name: flutter_number_picker
-description: A new Flutter Number Picker plugin.
+description: A new custom Flutter Number Picker plugin.
 version: 0.0.1
+author: Phuong Vu <phuongitnhbien12@gmail.com>
+homepage: https://github.com/phuongtinhbien
+repository: https://github.com/phuongtinhbien/flutter_number_picker
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
