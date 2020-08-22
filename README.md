@@ -33,7 +33,7 @@ CustomNumberPicker(
 - `maxValue` [required] is the maximum value of the ButtonPicker.
 - `initialValue` [required] is the value displayed on load.
 - `onValue` [required] returns the current value.
-- `step` defines how much the value should increase or decrease on tap. [default] = 1.
+- `step` defines how much the value should increase or decrease on tap. `default` = 1.
 - `valueTextStyle` is the `TextStyle` of the value.
 - `shape` is the `ShapeBorder` of the picker.
 
@@ -42,7 +42,7 @@ See examples directory for full examples.
 
 
 #### Standalone widget
-![vertical](https://raw.githubusercontent.com/MarcinusX/NumberPicker/master/example/screenshots/gif_widget.gif)
+![vertical](https://github.com/phuongtinhbien/flutter_number_picker/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202020-08-22%20at%2013.44.02.png)
 ```dart
 class MyApp extends StatefulWidget {
   @override
