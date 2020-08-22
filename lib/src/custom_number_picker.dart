@@ -87,7 +87,8 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
             width: 8,
           ),
           Container(
-            width:  _textSize(widget.valueTextStyle ?? TextStyle(fontSize: 14)).width,
+            width: _textSize(widget.valueTextStyle ?? TextStyle(fontSize: 14))
+                .width,
             child: Text(
               "$_initialValue",
               style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
@@ -123,17 +124,21 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
 
   Size _textSize(TextStyle style) {
     final TextPainter textPainter = TextPainter(
-        text: TextSpan(text: _maxValue.toString(), style: style), maxLines: 1, textDirection: TextDirection.ltr)
-      ..layout(minWidth: 0, maxWidth: _maxValue.toString().length* style.fontSize);
+        text: TextSpan(text: _maxValue.toString(), style: style),
+        maxLines: 1,
+        textDirection: TextDirection.ltr)
+      ..layout(
+          minWidth: 0, maxWidth: _maxValue.toString().length * style.fontSize);
     return textPainter.size;
   }
+
   void minus() {
     if (canDoAction(DoAction.MINUS)) {
       setState(() {
         _initialValue -= _step;
       });
     }
-    if (widget.onValue != null){
+    if (widget.onValue != null) {
       widget.onValue(_initialValue);
     }
   }
@@ -144,7 +149,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
         _initialValue += _step;
       });
     }
-    if (widget.onValue != null){
+    if (widget.onValue != null) {
       widget.onValue(_initialValue);
     }
   }
@@ -165,6 +170,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
     if (action == DoAction.ADD) {
       return _initialValue + _step <= _maxValue;
     }
+    return false;
   }
 }
 
