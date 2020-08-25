@@ -44,6 +44,8 @@ CustomNumberPicker(
 - `step` defines how much the value should increase or decrease on tap. `default` = 1.
 - `valueTextStyle` is the `TextStyle` of the value.
 - `shape` is the `ShapeBorder` of the picker.
+- `customAddButton` is the `Widget`.
+- `customAddButton` is the `Widget`.
 
 ### Usage examples
 See examples directory for full examples.

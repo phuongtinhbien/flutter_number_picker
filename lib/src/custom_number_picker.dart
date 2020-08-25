@@ -8,6 +8,8 @@ class CustomNumberPicker extends StatefulWidget {
   final ShapeBorder shape;
   final TextStyle valueTextStyle;
   final Function(dynamic) onValue;
+  final Widget customAddButton;
+  final Widget customMinusButton;
   final dynamic maxValue;
   final dynamic minValue;
   final dynamic initialValue;
@@ -21,8 +23,14 @@ class CustomNumberPicker extends StatefulWidget {
       @required this.initialValue,
       @required this.maxValue,
       @required this.minValue,
-      this.step = 1})
-      : super(key: key);
+      this.step = 1,
+      this.customAddButton,
+      this.customMinusButton})
+      : assert(initialValue != null),
+        assert(initialValue.runtimeType != String),
+        assert(maxValue.runtimeType != initialValue.runtimeType),
+        assert(minValue.runtimeType != initialValue.runtimeType),
+        super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -62,7 +70,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
               borderRadius: BorderRadius.all(Radius.circular(0.0)),
               side: BorderSide(width: 1.0, color: Color(0xffF0F0F0))),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(4.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -79,10 +87,11 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
               },
               child: Padding(
                 padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
-                child: SvgPicture.asset(
-                  Res.ic_minus,
-                  height: 15,
-                ),
+                child: widget.customMinusButton ??
+                    SvgPicture.asset(
+                      Res.ic_minus,
+                      height: 15,
+                    ),
               ),
             ),
             Container(
@@ -107,10 +116,11 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
               },
               child: Padding(
                 padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
-                child: SvgPicture.asset(
-                  Res.ic_add,
-                  height: 15,
-                ),
+                child: widget.customAddButton ??
+                    SvgPicture.asset(
+                      Res.ic_add,
+                      height: 15,
+                    ),
               ),
             )
           ],

@@ -1,7 +1,6 @@
 name: flutter_number_picker
 description: A new custom Flutter Number Picker plugin by using add and minus buttons.
-version: 0.0.3
-author: Phuong Vu <phuongitnhbien12@gmail.com>
+version: 0.0.5
 homepage: https://github.com/phuongtinhbien
 repository: https://github.com/phuongtinhbien/flutter_number_picker
 
