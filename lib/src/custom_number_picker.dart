@@ -28,8 +28,8 @@ class CustomNumberPicker extends StatefulWidget {
       this.customMinusButton})
       : assert(initialValue != null),
         assert(initialValue.runtimeType != String),
-        assert(maxValue.runtimeType != initialValue.runtimeType),
-        assert(minValue.runtimeType != initialValue.runtimeType),
+        assert(maxValue.runtimeType == initialValue.runtimeType),
+        assert(minValue.runtimeType == initialValue.runtimeType),
         super(key: key);
 
   @override

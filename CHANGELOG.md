@@ -1,3 +1,8 @@
+## 0.0.7
+
+* Update info, fix errors.
+* Custom add, minus button.
+
 ## 0.0.6
 
 * Update info, fix errors.
