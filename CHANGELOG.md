@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Upgrade lib
+
 ## 0.0.7
 
 * Update info, fix errors.
