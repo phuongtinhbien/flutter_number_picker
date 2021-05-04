@@ -5,24 +5,24 @@ import 'package:flutter_number_picker/src/res.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNumberPicker extends StatefulWidget {
-  final ShapeBorder shape;
-  final TextStyle valueTextStyle;
+  final ShapeBorder? shape;
+  final TextStyle? valueTextStyle;
   final Function(dynamic) onValue;
-  final Widget customAddButton;
-  final Widget customMinusButton;
+  final Widget? customAddButton;
+  final Widget? customMinusButton;
   final dynamic maxValue;
   final dynamic minValue;
   final dynamic initialValue;
   final dynamic step;
 
   CustomNumberPicker(
-      {Key key,
+      {Key? key,
       this.shape,
       this.valueTextStyle,
-      @required this.onValue,
-      @required this.initialValue,
-      @required this.maxValue,
-      @required this.minValue,
+      required this.onValue,
+      required this.initialValue,
+      required this.maxValue,
+      required this.minValue,
       this.step = 1,
       this.customAddButton,
       this.customMinusButton})
@@ -44,7 +44,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
   dynamic _maxValue;
   dynamic _minValue;
   dynamic _step;
-  Timer _timer;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -80,10 +80,10 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
                 onLongPress(DoAction.MINUS);
               },
               onTapUp: (details) {
-                _timer.cancel();
+                _timer?.cancel();
               },
               onTapCancel: () {
-                _timer.cancel();
+                _timer?.cancel();
               },
               child: Padding(
                 padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
@@ -109,10 +109,10 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
                 onLongPress(DoAction.ADD);
               },
               onTapUp: (details) {
-                _timer.cancel();
+                _timer?.cancel();
               },
               onTapCancel: () {
-                _timer.cancel();
+                _timer?.cancel();
               },
               child: Padding(
                 padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
@@ -135,7 +135,7 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
         maxLines: 1,
         textDirection: TextDirection.ltr)
       ..layout(
-          minWidth: 0, maxWidth: _maxValue.toString().length * style.fontSize);
+          minWidth: 0, maxWidth: _maxValue.toString().length * style.fontSize!);
     return textPainter.size;
   }
 
