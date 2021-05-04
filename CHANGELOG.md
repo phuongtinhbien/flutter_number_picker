@@ -1,3 +1,8 @@
+## 1.0.0
+
+* Upgrade lib
+* Migrate Null Safety
+
 ## 0.0.8
 
 * Upgrade lib
