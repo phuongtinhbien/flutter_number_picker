@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
               maxValue: 1000000,
               minValue: 0,
               step: 10000,
+              enable: true,
               onValue: (value) {
                 print(value.toString());
               },

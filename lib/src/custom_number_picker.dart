@@ -15,6 +15,9 @@ class CustomNumberPicker extends StatefulWidget {
   final dynamic initialValue;
   final dynamic step;
 
+  ///default vale true
+  final bool enable;
+
   CustomNumberPicker(
       {Key? key,
       this.shape,
@@ -25,7 +28,8 @@ class CustomNumberPicker extends StatefulWidget {
       required this.minValue,
       this.step = 1,
       this.customAddButton,
-      this.customMinusButton})
+      this.customMinusButton,
+      this.enable = true})
       : assert(initialValue != null),
         assert(initialValue.runtimeType != String),
         assert(maxValue.runtimeType == initialValue.runtimeType),
@@ -60,70 +64,76 @@ class CustomNumberPickerState extends State<CustomNumberPicker> {
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    return Card(
-      shadowColor: Colors.transparent,
-      elevation: 0.0,
-      semanticContainer: true,
-      color: Colors.transparent,
-      shape: widget.shape ??
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(0.0)),
-              side: BorderSide(width: 1.0, color: Color(0xffF0F0F0))),
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            GestureDetector(
-              onTap: minus,
-              onTapDown: (details) {
-                onLongPress(DoAction.MINUS);
-              },
-              onTapUp: (details) {
-                _timer?.cancel();
-              },
-              onTapCancel: () {
-                _timer?.cancel();
-              },
-              child: Padding(
-                padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
-                child: widget.customMinusButton ??
-                    SvgPicture.asset(
-                      Res.ic_minus,
-                      height: 15,
-                    ),
+    return IgnorePointer(
+      ignoring: !widget.enable,
+      child: Card(
+        shadowColor: Colors.transparent,
+        elevation: 0.0,
+        semanticContainer: true,
+        color: Colors.transparent,
+        shape: widget.shape ??
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                side: BorderSide(width: 1.0, color: Color(0xffF0F0F0))),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              GestureDetector(
+                onTap: minus,
+                onTapDown: (details) {
+                  onLongPress(DoAction.MINUS);
+                },
+                onTapUp: (details) {
+                  _timer?.cancel();
+                },
+                onTapCancel: () {
+                  _timer?.cancel();
+                },
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+                  child: widget.customMinusButton ??
+                      SvgPicture.asset(
+                        Res.ic_minus,
+                        height: 15,
+                      ),
+                ),
               ),
-            ),
-            Container(
-              width: _textSize(widget.valueTextStyle ?? TextStyle(fontSize: 14))
-                  .width,
-              child: Text(
-                "$_initialValue",
-                style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
-                textAlign: TextAlign.center,
+              Container(
+                width:
+                    _textSize(widget.valueTextStyle ?? TextStyle(fontSize: 14))
+                        .width,
+                child: Text(
+                  "$_initialValue",
+                  style: widget.valueTextStyle ?? TextStyle(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-            GestureDetector(
-              onTap: add,
-              onTapDown: (details) {
-                onLongPress(DoAction.ADD);
-              },
-              onTapUp: (details) {
-                _timer?.cancel();
-              },
-              onTapCancel: () {
-                _timer?.cancel();
-              },
-              child: Padding(
-                padding: EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
-                child: widget.customAddButton ??
-                    SvgPicture.asset(
-                      Res.ic_add,
-                      height: 15,
-                    ),
-              ),
-            )
-          ],
+              GestureDetector(
+                onTap: add,
+                onTapDown: (details) {
+                  onLongPress(DoAction.ADD);
+                },
+                onTapUp: (details) {
+                  _timer?.cancel();
+                },
+                onTapCancel: () {
+                  _timer?.cancel();
+                },
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(left: 6, right: 6, bottom: 6, top: 6),
+                  child: widget.customAddButton ??
+                      SvgPicture.asset(
+                        Res.ic_add,
+                        height: 15,
+                      ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

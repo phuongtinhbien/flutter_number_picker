@@ -1,3 +1,9 @@
+## 1.0.1
+
+* Upgrade lib
+* Fix errors
+* add "enable" attribute for able to tap
+
 ## 1.0.0
 
 * Upgrade lib
