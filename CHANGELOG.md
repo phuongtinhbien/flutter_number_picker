@@ -1,3 +1,10 @@
+## 1.0.2
+
+* Upgrade lib
+* Fix errors
+* add "enable" attribute for able to tap
+* add custom type.
+
 ## 1.0.1
 
 * Upgrade lib
