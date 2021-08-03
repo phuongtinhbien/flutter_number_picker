@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_number_picker/src/res.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomNumberPicker<T> extends StatefulWidget {
+class CustomNumberPicker<T extends num> extends StatefulWidget {
   final ShapeBorder? shape;
   final TextStyle? valueTextStyle;
   final Function(T) onValue;
@@ -30,8 +30,7 @@ class CustomNumberPicker<T> extends StatefulWidget {
       this.customAddButton,
       this.customMinusButton,
       this.enable = true})
-      : assert(initialValue != null),
-        assert(initialValue.runtimeType != String),
+      : assert(initialValue.runtimeType != String),
         assert(maxValue.runtimeType == initialValue.runtimeType),
         assert(minValue.runtimeType == initialValue.runtimeType),
         super(key: key);
@@ -43,11 +42,11 @@ class CustomNumberPicker<T> extends StatefulWidget {
   }
 }
 
-class CustomNumberPickerState extends State<CustomNumberPicker> {
-  dynamic _initialValue;
-  dynamic _maxValue;
-  dynamic _minValue;
-  dynamic _step;
+class CustomNumberPickerState extends State<CustomNumberPicker<num>> {
+  late num _initialValue;
+  late num _maxValue;
+  late num _minValue;
+  late num _step;
   Timer? _timer;
 
   @override
