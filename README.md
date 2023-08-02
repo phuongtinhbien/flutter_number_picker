@@ -31,7 +31,7 @@ CustomNumberPicker(
               maxValue: 1000000,
               minValue: 0,
               step: 10000,
-              onValue: (value) {
+              onValue: (num value) {
                 print(value.toString());
               },
             )
@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
               maxValue: 1000000,
               minValue: 0,
               step: 10000,
-              onValue: (value) {
+              onValue: (num value) {
                 print(value.toString());
               },
             ),
